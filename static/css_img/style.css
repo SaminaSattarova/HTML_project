@@ -4,6 +4,25 @@
   height: 84px;
 }
 
+.h1{
+ color: #834d18;
+ font-size: 50px;
+}
+
+.description {
+ font-size: 30px;
+ text-align: center;
+ vertical-align: middle;
+ background-color: #faf0e6;
+ padding-bottom: 20px;
+ padding-top: 20px;
+
+}
+
+.p{
+ margin-bottom: 5px;
+}
+
 .background_9n {
   background-image: url("background_9n.png");
   height: 403px;
