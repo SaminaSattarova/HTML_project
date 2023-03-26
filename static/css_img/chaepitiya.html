@@ -5,41 +5,38 @@
     box-sizing: border-box;
     margin: 0;
 }
+
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
 }
+
 .base {
     text-align: center;
     padding-top: 20px;
 }
+
 .container {
     max-width: 960px;
     margin: 50px auto;
-    padding: 0 15px;
+    padding: 15 15px;
     background: white;
+    outline: 2px solid #C0C0C0;
+    border-radius: 15px 15px 15px 15px;
 }
-.post-image img {
-    width: 100%;
-    margin: 0 0 20px 0;
-}
-.post h1 {
-    color: #222;
-    font-weight: 600;
-    margin-bottom: 30px;
-}
+
 .post-meta {
-    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     display: flex;
-    flex-wrap: wrap;
 }
-time,
-.author {
+
+time, .author {
     padding-right: 26px;
     position: relative;
 }
-time:after,
-.author:after {
+
+time:after, .author:after {
     content: "";
     width: 6px;
     height: 6px;
@@ -50,29 +47,73 @@ time:after,
     right: 10px;
     transform: translateY(-50%);
 }
+
 p {
     line-height: 1.5;
     margin-bottom: 1em;
 }
+
 @media (min-width: 768px) {
     body {
         font-size: 16px;
     }
     .container {
-        padding: 0 45px;
-    }
-    .post-image img {
-        float: right;
-        width: 300px;
-        margin: 0 0 20px 20px;
-    }
-    .post-header {
-        padding-left: 26px;
-        border-left: 4px solid #D8D8D8;
-        margin-left: -30px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
+#zatemnenie {
+    background: rgba(102, 102, 102, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.text {
+  color: #000000;
+}
+
+#okno {
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    border: 3px solid #C0C0C0;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: #fff;
+}
+
+.text_window {
+  padding-top: 1%;
+}
+
+#zatemnenie:target {display: block;}
+
+.close {
+    color: #000000;
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 0;
+    font-size: 14pt;
+}
+
+p {
+  margin-top: 10px;
+}
+
 </style>
+
 <head>
     <meta charset="UTF-8">
     <title>Travels</title>
@@ -80,22 +121,24 @@ p {
 <body>
   <h1 class="base">Записи в блоге</h1>
   <div class="container">
-    <div class="post">
-        <div class="post-content">
-            <div class="post-header">
-                <h1>Сложно сказать, почему чистый разум не скован границами</h1>
-                <div class="post-meta">
-                    <time datetime="2019-04-01">Апрель, 1</time>
-                    <span class="author">Мария Малиновая</span>
-                    <span class="category">Философия</span>
-                </div>
-            </div>
-            <p>Идейные соображения высшего порядка, а также курс на социально-ориентированный национальный проект создает
-                необходимость включения в производственный план целого ряда внеочередных мероприятий с учетом комплекса
-                прогресса профессионального сообщества.
-            </p>
-        </div>
+      <h2>Сложно сказать</h2>
+      <div class="post-meta">
+          <time datetime="2023-03-26">Апрель, 1</time>
+          <span class="author">Мария Малиновая</span>
+          <span class="category">Философия</span>
+      </div>
+      <a href="#zatemnenie" class="text">Посмотреть запись</a>
     </div>
-</div>
+    <div id="zatemnenie">
+      <div id="okno" class="text_window">Всплывающее окошко!<br>
+          <p>
+             Идейные соображения высшего порядка, а также курс на социально-ориентированный национальный проект создает
+             необходимость включения в производственный план целого ряда внеочередных мероприятий с учетом комплекса
+             прогресса профессионального сообщества.
+          </p>
+          # можно вставить картинка маленького размера
+          <a href="#" class="close">Закрыть окно</a>
+      </div>
+    </div>
 </body>
 </html>
