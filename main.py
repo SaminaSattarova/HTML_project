@@ -1,18 +1,19 @@
 from flask import Flask, render_template
 from data import db_session
+from data.mates import Classmates
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 
-@app.route('/pers/<string:name>')
-def pers(name):
-    return render_template('person.html', mane=name)
-
-
 @app.route('/')
 def index():
-    return render_template('base.html', title='9Н')
+    db_sess = db_session.create_session()
+    mates = {}
+    for elem in db_sess.query(Classmates):
+        mates[elem.name] = [elem.about, elem.travels]
+    return render_template('base.html', title='9Н', people=mates)
+
 
 
 def main():

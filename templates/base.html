@@ -66,52 +66,67 @@
   <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
       <div class="carousel-item active">
+        {% set i = "Вика Гончарова" %}
         <figure class="avatarki_8"><input type="image" src="../static/css_img/mates/first_creator.jpg" alt="нытик" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Вика Гончарова">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Вика Гончарова" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Вика Гончарова</figcaption></figure>
+        {% set i = "Самина Саттарова" %}
         <figure class="avatarki_8"><input type="image" src="../static/css_img/mates/second_creator.jpg" alt="задолбалась слушать нытьё"
-                                          class="one_ava" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          class="one_ava" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Самина Саттарова" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Самина Саттарова</figcaption></figure>
+        {% set i = "Влад Цуриков" %}
         <figure class="avatarki_8"><input type='image' src="../static/css_img/mates/mks.jpg" alt="no questions pls"
-                                          class="one_ava" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          class="one_ava" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Влад Цуриков" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Влад Цуриков</figcaption></figure>
+        {% set i = "Сеня Зайцев" %}
         <figure class="avatarki_8"><input type='image' src="../static/css_img/mates/mks.jpg" alt="no questions pls" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Сеня Зайцев" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Сеня Зайцев</figcaption></figure>
+        {% set i = "Кирилл Бобков" %}
         <figure class="avatarki_8"><input type='image' src="../static/css_img/mates/mks.jpg" alt="no questions pls" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Кирилл Бобков" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Кирилл Бобков</figcaption></figure>
+        {% set i = "Лёня Григоренко" %}
         <figure class="avatarki_8"><input type='image' src="../static/css_img/mates/mks.jpg" alt="no questions pls" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Лёня Григоренко" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Лёня Григоренко</figcaption></figure>
+        {% set i = "Дима Бурмистров" %}
         <figure class="avatarki_8"><input type='image' src="../static/css_img/mates/mks.jpg" alt="no questions pls" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Дима Бурмистров" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
          <figcaption>Дима Бурмистров</figcaption></figure>
+        {% set i = "Володя Шкляев" %}
         <figure class="avatarki_8"><input type='image' src="../static/css_img/mates/mks.jpg" alt="no questions pls" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Володя Шкляев" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Володя Шкляев</figcaption></figure>
       </div>
       <div class="carousel-item">
+        {% set i = "Андрей Огибин" %}
         <figure class="avatarki_4"><input type="image" src="../static/css_img/mates/first_creator.jpg" alt="нытик" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Андрей Огибин" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Андрей Огибин</figcaption></figure>
+        {% set i = "Ульяна Боровская" %}
         <figure class="avatarki_4"><input type="image" src="../static/css_img/mates/second_creator.jpg" alt="задолбалась слушать нытьё"
-                                          class="one_ava" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          class="one_ava" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Ульяна Боровская" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Ульяна Боровская</figcaption></figure>
+        {% set i = "Женя Якимов" %}
         <figure class="avatarki_4"><input type='image' src="../static/css_img/mates/mks.jpg" alt="no questions pls" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Женя Якимов" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Женя Якимов</figcaption></figure>
+        {% set i = "Дима Павлов" %}
         <figure class="avatarki_4"><input type='image' src="../static/css_img/mates/mks.jpg" alt="no questions pls" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Дима Павлов" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Дима Павлов</figcaption></figure>
+        {% set i = "Володя Наумов" %}
         <figure class="avatarki_3"><input type='image' src="../static/css_img/mates/mks.jpg" alt="no questions pls" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Володя Наумов" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Володя Наумов</figcaption></figure>
+        {% set i = "Серёжа Нерсесян" %}
         <figure class="avatarki_3"><input type='image' src="../static/css_img/mates/mks.jpg" alt="no questions pls" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Серёжа Нерсесян" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Серёжа Нерсесян</figcaption></figure>
+        {% set i = "Артём Чёрный" %}
         <figure class="avatarki_3"><input type='image' src="../static/css_img/mates/mks.jpg" alt="no questions pls" class="one_ava"
-                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="@mdo">
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-name="Артём Чёрный" data-bs-about="{{people[i][0]}}" data-bs-hobby="{{people[i][1]}}">
           <figcaption>Артём Чёрный</figcaption></figure>
       </div>
     </div>
@@ -126,7 +141,25 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
         <div class="modal-content">
-            {% block content %}{% endblock %}
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <h1 class="col-form-label">Кто это?</h1>
+                <p class="char"></p>
+              </div>
+              <div class="mb-3">
+                <h1 class="col-form-label">Чем же занимается?</h1>
+                <p class="hobby"></p>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          </div>
         </div>
       </div>
     </div>
@@ -135,4 +168,22 @@
     <label font size="15" color="#ffffff">По всем вопросам обращайтесь к нашему телеграмм-боту:
       <a href="http://t.me/site9N_bot" target="_blank"><font color="#ffffff">http://t.me/site9N_bot</font></a></label>
   </div>
+  <script type="text/javascript">
+
+    const exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', event => {
+    const button = event.relatedTarget
+    const recipient = button.getAttribute('data-bs-name')
+    const info = button.getAttribute('data-bs-about')
+    const infoo = button.getAttribute('data-bs-hobby')
+    const modalTitle = exampleModal.querySelector('.modal-title')
+    const modalBody = exampleModal.querySelector('.char')
+    const modalBody1 = exampleModal.querySelector('.hobby')
+    modalTitle.textContent = `${recipient}`
+    modalBody.textContent = `${info}`
+    modalBody1.textContent = `${infoo}`
+
+    })
+
+  </script>
 </body>
