@@ -9,5 +9,6 @@ class Classmates(SqlAlchemyBase):
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
     name = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    about = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    character = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    hobby = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     travels = sqlalchemy.Column(sqlalchemy.String, nullable=True)
