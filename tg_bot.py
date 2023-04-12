@@ -63,7 +63,7 @@ async def how_does_it_cost(update, context):
 
 async def for_what_it_need(update, context):
     await update.message.reply_text(
-        "Да просто так бл")
+        "Да просто так")
 
 
 async def another_questions(update, context):

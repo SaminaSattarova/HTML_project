@@ -4,57 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <title>Travels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../templates/travels.css">
 </head>
 <body>
   <h1 class="base">Записи в блоге</h1>
   <div class="container">
-      <h2>Сложно сказать</h2>
+      <h2><b>Сложно сказать</b></h2>
       <div class="post-meta">
           <time datetime="2023-03-26">Апрель, 1</time>
-          <span class="author">Мария Малиновая</span>
-          <span class="category">Философия</span>
+          <span class="author">Самина Саттарова</span>
+          <span class="category">5 по алгебре</span>
       </div>
-      <a href="#zatemnenie" class="text">Посмотреть запись</a>
+      <a class="text" data-bs-toggle="modal" data-bs-target="#exampleModal">Посмотреть запись</a>
   </div>
   <div class="container">
-      <h2>Сложно сказать</h2>
+      <h2><b>Сложно сказать</b></h2>
       <div class="post-meta">
           <time datetime="2023-03-26">Апрель, 1</time>
-          <span class="author">Мария Малиновая</span>
-          <span class="category">Философия</span>
+          <span class="author">Самина Саттарова</span>
+          <span class="category">5 по алгебре</span>
       </div>
-      <a href="#zatemnenie" class="text">Посмотреть запись</a>
+      <a class="text" data-bs-toggle="modal" data-bs-target="#exampleModal">Посмотреть запись</a>
   </div>
   <div class="container">
-      <h2>Сложно сказать</h2>
+      <h2><b>Сложно сказать</b></h2>
       <div class="post-meta">
           <time datetime="2023-03-26">Апрель, 1</time>
-          <span class="author">Мария Малиновая</span>
-          <span class="category">Философия</span>
+          <span class="author">Самина Саттарова</span>
+          <span class="category">5 по алгебре</span>
       </div>
-      <a href="#zatemnenie" class="text">Посмотреть запись</a>
+      <a class="text" data-bs-toggle="modal" data-bs-target="#exampleModal">Посмотреть запись</a>
   </div>
   <div class="container">
-      <h2>Сложно сказать</h2>
+      <h2><b>Сложно сказать</b></h2>
       <div class="post-meta">
           <time datetime="2023-03-26">Апрель, 1</time>
-          <span class="author">Мария Малиновая</span>
-          <span class="category">Философия</span>
+          <span class="author">Самина Саттарова</span>
+          <span class="category">5 по алгебре</span>
       </div>
-      <a href="#zatemnenie" class="text">Посмотреть запись</a>
+      <a class="text" data-bs-toggle="modal" data-bs-target="#exampleModal">Посмотреть запись</a>
   </div>
-  <input type="button" onclick="history.back();" value="Назад"/>
-  <div id="zatemnenie">
-      <div id="okno" class="text_window">Всплывающее окошко!<br>
-          <p>
-             Идейные соображения высшего порядка, а также курс на социально-ориентированный национальный проект создает
-             необходимость включения в производственный план целого ряда внеочередных мероприятий с учетом комплекса
-             прогресса профессионального сообщества.
-          </p>
-          # можно вставить картинка маленького размера
-          <a href="#" class="close">Закрыть окно</a>
+  <div class="container">
+      <h2><b>Сложно сказать</b></h2>
+      <div class="post-meta">
+          <time datetime="2023-03-26">Апрель, 1</time>
+          <span class="author">Самина Саттарова</span>
+          <span class="category">5 по алгебре</span>
+      </div>
+      <a class="text" data-bs-toggle="modal" data-bs-target="#exampleModal">Посмотреть запись</a>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <h1 class="col-form-label">Кто это?</h1>
+                <p class="char"></p>
+              </div>
+              <div class="mb-3">
+                <h1 class="col-form-label">Чем же обычно занимается?</h1>
+                <p class="hobby"></p>
+              </div>
+              <div class="mb-3">
+                <h1 class="col-form-label">А вместе в классом он(а) был(а):</h1>
+                <p class="travel"></p>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          </div>
+        </div>
       </div>
   </div>
+  <script type="text/javascript">
+
+    const exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', event => {
+    const button = event.relatedTarget
+    const recipient = button.getAttribute('data-bs-name')
+    const info = button.getAttribute('data-bs-character')
+    const infoo = button.getAttribute('data-bs-hobby')
+    const infooo = button.getAttribute('data-bs-travels')
+    const modalTitle = exampleModal.querySelector('.modal-title')
+    const modalBody = exampleModal.querySelector('.char')
+    const modalBody1 = exampleModal.querySelector('.hobby')
+    const modalBody2 = exampleModal.querySelector('.travel')
+    modalTitle.textContent = `${recipient}`
+    modalBody.textContent = `${info}`
+    modalBody1.textContent = `${infoo}`
+    modalBody2.textContent = `${infooo}`
+
+    })
+
+  </script>
 </body>
 </html>

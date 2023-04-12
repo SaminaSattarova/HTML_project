@@ -61,15 +61,6 @@ p {
         padding-right: 15px;
     }
 }
-#zatemnenie {
-    background: rgba(102, 102, 102, 0.5);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-}
 
 .text {
   color: #000000;
@@ -94,17 +85,10 @@ p {
   padding-top: 1%;
 }
 
-#zatemnenie:target {display: block;}
-
-.close {
-    color: #000000;
-    position:absolute;
-    right: 0;
-    bottom: 0;
-    margin-bottom: 0;
-    font-size: 14pt;
-}
-
 p {
   margin-top: 10px;
+}
+
+h2 {
+  font-size: 17pt;
 }
