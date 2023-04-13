@@ -5,6 +5,10 @@ from data.mates import Classmates
 from data.users import User
 from data.news import News
 from forms.user import RegisterForm, LoginForm
+import subprocess
+cmd = 'python tg_bot.py'
+
+p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
 
 
 app = Flask(__name__)
