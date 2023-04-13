@@ -34,7 +34,7 @@ def login():
         user = db_sess.query(User).filter(User.email == form.email.data).first()
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
-            return redirect("/")
+            return redirect('/')
         return render_template('login.html',
                                message="Неправильный логин или пароль",
                                form=form)
@@ -52,7 +52,10 @@ def index():
             (News.user == current_user) | (News.is_private != True))
     else:
         news = db_sess.query(News).filter(News.is_private != True)
-    return render_template('base.html', title='9Н', people=mates)
+    if current_user.is_authenticated:
+        if current_user.is_classmate:
+            return render_template('base.html', title='9Н', people=mates, classmate=True, name=current_user.name)
+    return render_template('base.html', title='9Н', people=mates, classmate=False, name='')
 
 
 @app.route('/register', methods=['GET', 'POST'])
