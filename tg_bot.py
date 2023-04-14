@@ -16,6 +16,11 @@ reply_keyboard = [['/developers', '/phones'],
                   ['/information_about_site', '/questions']]
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
 
+reply_keyboard_two = [['/how_long_we_make_this', '/how_does_it_cost'],
+                          ['/for_what_it_need', '/another_questions'],
+                          ['/back']]
+markup_two = ReplyKeyboardMarkup(reply_keyboard_two, one_time_keyboard=False)
+
 
 async def start(update, context):
     await update.message.reply_text(
@@ -26,6 +31,12 @@ async def start(update, context):
 async def help(update, context):
     await update.message.reply_text(
         "Выберите один из предложенных вариантов вопроса.")
+
+
+async def back(update, context):
+    await update.message.reply_text(
+        "Что вас интересует?",
+         reply_markup=markup)
 
 
 async def developers(update, context):
@@ -44,9 +55,6 @@ async def information_about_site(update, context):
 
 
 async def questions(update, context):
-    reply_keyboard_two = [['/how_long_we_make_this', '/how_does_it_cost'],
-                          ['/for_what_it_need', '/another_questions']]
-    markup_two = ReplyKeyboardMarkup(reply_keyboard_two, one_time_keyboard=False)
     await update.message.reply_text(
         "Что именно вы хотите узнать?", reply_markup=markup_two)
 
@@ -89,6 +97,7 @@ def main():
     application.add_handler(CommandHandler("how_does_it_cost", how_does_it_cost))
     application.add_handler(CommandHandler("for_what_it_need", for_what_it_need))
     application.add_handler(CommandHandler("another_questions", another_questions))
+    application.add_handler(CommandHandler("back", back))
     application.add_handler(CommandHandler("help", help))
     application.add_handler(CommandHandler("close", close_keyboard))
     application.run_polling()
