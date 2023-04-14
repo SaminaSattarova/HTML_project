@@ -3,7 +3,7 @@ from .db_session import SqlAlchemyBase
 from sqlalchemy import orm
 
 
-class Classmates(SqlAlchemyBase):
+class Classmate(SqlAlchemyBase):
     __tablename__ = 'mates'
 
     id = sqlalchemy.Column(sqlalchemy.Integer,

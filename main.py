@@ -1,10 +1,10 @@
 from flask import Flask, render_template, redirect
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from data import db_session
-from data.mates import Classmates
+from data.mates import Classmate
 from data.users import User
 from data.news import News
-from forms.user import RegisterForm, LoginForm
+from forms.user import RegisterForm, LoginForm, CharForm
 import subprocess
 cmd = 'python tg_bot.py'
 
@@ -45,11 +45,16 @@ def login():
     return render_template('login.html', title='Авторизация', form=form)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     db_sess = db_session.create_session()
+    form = CharForm()
+    if form.validate_on_submit():
+        info = db_sess.query(Classmate).filter(Classmate.name == form.name.data == current_user.name).first()
+        info.character = form.about.data
+        db_sess.commit()
     mates = {}
-    for elem in db_sess.query(Classmates):
+    for elem in db_sess.query(Classmate):
         mates[elem.name] = [elem.character, elem.hobby, elem.travels]
     if current_user.is_authenticated:
         news = db_sess.query(News).filter(
@@ -58,8 +63,8 @@ def index():
         news = db_sess.query(News).filter(News.is_private != True)
     if current_user.is_authenticated:
         if current_user.is_classmate:
-            return render_template('base.html', title='9Н', people=mates, classmate=True, name=current_user.name)
-    return render_template('base.html', title='9Н', people=mates, classmate=False, name='')
+            return render_template('base.html', title='9Н', people=mates, classmate=True, name=current_user.name, form=form)
+    return render_template('base.html', title='9Н', people=mates, classmate=False, name='', form=form)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -75,7 +80,7 @@ def reqister():
             return render_template('register.html', title='Регистрация',
                                    form=form,
                                    message="Такой пользователь уже есть")
-        if db_sess.query(Classmates).filter(Classmates.name == form.name_surname.data).first():
+        if db_sess.query(Classmate).filter(Classmate.name == form.name_surname.data).first():
             user = User(
                name=form.name_surname.data,
                email=form.email.data,

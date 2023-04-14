@@ -156,6 +156,7 @@
                 {% if not classmate %}
                     <p>Этот человек ещё скрывается...</p>
                 {% else %}
+                    <img src="../static/css_img/redact.jpg" class="icon" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                     <p class="char"></p>
                 {% endif %}
               </div>
@@ -164,9 +165,47 @@
                 <p class="hobby"></p>
               </div>
               <div class="mb-3">
-                <h1 class="col-form-label">А вместе в классом он(а) был(а):</h1>
+                <h1 class="col-form-label">А вместе в классом он(а) посещал(а):</h1>
                 <p class="travel"></p>
               </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+<!--          <div class="modal-header">-->
+<!--            <h1 class="modal-title fs-5" id="exampleModal2Label"></h1>-->
+<!--            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>-->
+<!--          </div>-->
+          <div class="modal-body">
+            <form action="" method="post">
+              {{ form.hidden_tag() }}
+              <p>
+              {{ form.about.label }}<br>
+              {{ form.about(class="form-control") }}<br>
+              {% for error in form.about.errors %}
+                <p class="alert alert-danger" role="alert">
+                  {{ error }}
+                </p>
+              {% endfor %}
+              </p>
+              <p>
+              {{ form.name.label }}<br>
+              {{ form.name(class="form-control") }}<br>
+              {% for error in form.name.errors %}
+                <p class="alert alert-danger" role="alert">
+                  {{ error }}
+                </p>
+              {% endfor %}
+              </p>
+              <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+              {{message}}
             </form>
           </div>
           <div class="modal-footer">
