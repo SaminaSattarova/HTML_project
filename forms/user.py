@@ -20,6 +20,6 @@ class LoginForm(FlaskForm):
 
 
 class CharForm(FlaskForm):
-    name = StringField('Твоё имя и фамилия:', validators=[DataRequired()])
+    # name = StringField('Твоё имя и фамилия:', validators=[DataRequired()])
     about = TextAreaField("О твоём характере:")
     submit = SubmitField('Поделиться')

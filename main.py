@@ -50,7 +50,7 @@ def index():
     db_sess = db_session.create_session()
     form = CharForm()
     if form.validate_on_submit():
-        info = db_sess.query(Classmate).filter(Classmate.name == form.name.data == current_user.name).first()
+        info = db_sess.query(Classmate).filter(Classmate.name == current_user.name).first()
         info.character = form.about.data
         db_sess.commit()
     mates = {}
