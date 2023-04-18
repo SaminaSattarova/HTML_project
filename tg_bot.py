@@ -1,8 +1,7 @@
 import logging
 from telegram.ext import Application, MessageHandler, filters
 from telegram.ext import CommandHandler
-from telegram import ReplyKeyboardMarkup
-from telegram import ReplyKeyboardRemove
+from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
 
 BOT_TOKEN = '6106499169:AAEPS49EemyNOIsGbIPMvmTk2I3fuBGVKAk'
 
@@ -17,8 +16,8 @@ reply_keyboard = [['/developers', '/phones'],
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
 
 reply_keyboard_two = [['/how_long_we_make_this', '/how_does_it_cost'],
-                          ['/for_what_it_need', '/another_questions'],
-                          ['/back']]
+                      ['/for_what_it_need', '/another_questions'],
+                      ['/back']]
 markup_two = ReplyKeyboardMarkup(reply_keyboard_two, one_time_keyboard=False)
 
 
@@ -45,13 +44,17 @@ async def developers(update, context):
 
 
 async def phones(update, context):
-    await update.message.reply_text("Самина: +7(916)607-6766, "
+    await update.message.reply_text("Самина Саттарова: +7(916)607-6766, "
                                     "Вика: +7(985)909-3310")
 
 
 async def information_about_site(update, context):
     await update.message.reply_text(
-        "Функции и возможности: ...")
+        "Функции и возможности: в нашем проекте, помимо регистрации и авторизации, "
+        "пользователь сможет посмотреть общую информацию о нашем классе и классном руководителе. "
+        "Можно будет опсмотреть информацию о различных поездках в интересные места. Плюс ко всему есть "
+        "возможность узнать своих будущих одноклассников или просто ребят, обучающихся в нашем классе, "
+        "узнать про них и о их увелечениях подробнее. А наш телеграм-бот ответит на все ваши вопросы.")
 
 
 async def questions(update, context):
@@ -61,17 +64,27 @@ async def questions(update, context):
 
 async def how_long_we_make_this(update, context):
     await update.message.reply_text(
-        "Время разработки: very long")
+        "Время написания: проект был дан нам примерно на три месяца. "
+        "Большая часть времени - учебное, поэтому по будним дням проектом мы не занимались. "
+        "В основном писали его в воскресенье, ведь это наш единственный выходной, а также целых 2 недели, "
+        "пока были каникулы. Суммарно, помимо большого колиства сил, "
+        "на данный сайт и бот ушло примерно 3 недели времени.")
 
 
 async def how_does_it_cost(update, context):
     await update.message.reply_text(
-        "По вопросам приобритения писать в лс")
+        "По вопросам приобритения писать в личные сообщения, "
+        "мы конечно можем договориться, но предвариьельно проект не продается")
 
 
 async def for_what_it_need(update, context):
     await update.message.reply_text(
-        "Да просто так")
+        "Цели проекта: у данного проекта были две основные задачи. "
+        "Во-первых, это небольшое хранилище памяти и воспоминаний о двух годах совместного обуения "
+        "для всего нашего класса. Во-вторых, это отличный путеводитель в лицейскую жизнь для тех ребят, "
+        "кто собирается поступать в данное учебное зпведение, а конкретнее в IT-класс, ведь можно интерактивно "
+        "познакомиться с будущими одноклассниками и классным руководителем, а также узнать о всех плюсах и "
+        "минусах обучения в нашем класе.")
 
 
 async def another_questions(update, context):
@@ -81,9 +94,15 @@ async def another_questions(update, context):
 
 async def close_keyboard(update, context):
     await update.message.reply_text(
-        "Ok",
+        "Клавиатура с кнопками закрыта, напишите /open, чтобы вновь открыть её",
         reply_markup=ReplyKeyboardRemove()
         )
+
+
+async def open_keyboard(update, context):
+    await update.message.reply_text(
+        "Клавиатура с кнопками снова открыта",
+        reply_markup=markup)
 
 
 def main():
@@ -99,6 +118,7 @@ def main():
     application.add_handler(CommandHandler("another_questions", another_questions))
     application.add_handler(CommandHandler("back", back))
     application.add_handler(CommandHandler("help", help))
+    application.add_handler(CommandHandler("open", open_keyboard))
     application.add_handler(CommandHandler("close", close_keyboard))
     application.run_polling()
 
