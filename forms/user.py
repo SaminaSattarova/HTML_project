@@ -1,8 +1,10 @@
+# импорт необходимых библиотек
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, BooleanField, SubmitField, EmailField, TextAreaField
 from wtforms.validators import DataRequired
 
 
+# создание полей для ввода информации для регистрации
 class RegisterForm(FlaskForm):
     email = EmailField('Почта', validators=[DataRequired()])
     password = PasswordField('Пароль', validators=[DataRequired()])
@@ -12,6 +14,7 @@ class RegisterForm(FlaskForm):
     submit = SubmitField('Войти')
 
 
+# создание полей для ввода информации для авторизации
 class LoginForm(FlaskForm):
     email = EmailField('Почта', validators=[DataRequired()])
     password = PasswordField('Пароль', validators=[DataRequired()])
@@ -19,7 +22,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Войти')
 
 
+# создание поля для ввода информации об авторизованном однокласснике
 class CharForm(FlaskForm):
-    # name = StringField('Твоё имя и фамилия:', validators=[DataRequired()])
     about = TextAreaField("О твоём характере:")
     submit = SubmitField('Поделиться')

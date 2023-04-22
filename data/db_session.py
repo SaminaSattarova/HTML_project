@@ -1,3 +1,4 @@
+# импорт необходимых библиотек
 import sqlalchemy as sa
 import sqlalchemy.orm as orm
 from sqlalchemy.orm import Session
@@ -7,6 +8,8 @@ SqlAlchemyBase = dec.declarative_base()
 
 __factory = None
 
+
+# создает и запускает работу с базой данных
 def global_init(db_file):
     global __factory
 
@@ -27,6 +30,7 @@ def global_init(db_file):
     SqlAlchemyBase.metadata.create_all(engine)
 
 
+# запуск работы приложения для определенного пользователя
 def create_session() -> Session:
     global __factory
     return __factory()

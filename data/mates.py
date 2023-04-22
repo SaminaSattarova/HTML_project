@@ -1,8 +1,10 @@
+# импорт необходимых библиотек
 import sqlalchemy
 from .db_session import SqlAlchemyBase
 from sqlalchemy import orm
 
 
+# создание полей с информацией про одноклассников в базе данных
 class Classmate(SqlAlchemyBase):
     __tablename__ = 'mates'
 

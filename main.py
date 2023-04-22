@@ -1,3 +1,4 @@
+# импорт необходимых библиотек
 from flask import Flask, render_template, redirect
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from data import db_session
@@ -17,6 +18,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
+# выход из аккаунта
 @app.route('/logout')
 @login_required
 def logout():
@@ -24,12 +26,14 @@ def logout():
     return redirect("/")
 
 
+# функция получения пользователя(поиск id и запуск сайта конкретно для него)
 @login_manager.user_loader
 def load_user(user_id):
     db_sess = db_session.create_session()
     return db_sess.query(User).get(user_id)
 
 
+# функция авторизации с проверкой на пароль
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -45,6 +49,7 @@ def login():
     return render_template('login.html', title='Авторизация', form=form)
 
 
+# запуск главной страницы в зависимости от статуса пользователя
 @app.route('/', methods=['GET', 'POST'])
 def index():
     db_sess = db_session.create_session()
@@ -67,6 +72,10 @@ def index():
     return render_template('base.html', title='9Н', people=mates, classmate=False, name='', form=form)
 
 
+# регистрация, проверка пароля и почты(есть ли пользователь с такой почтой)
+# если пользователь является одноклассником, он отражается в базе данных как одноклассник
+# если нет -- как неодноклассник соответственно
+# генерация шаблона авторизации после регистрации
 @app.route('/register', methods=['GET', 'POST'])
 def reqister():
     form = RegisterForm()
@@ -101,6 +110,7 @@ def reqister():
     return render_template('register.html', title='Регистрация', form=form)
 
 
+# подключение базы данных
 def main():
     db_session.global_init("db/ninthN.db")
     app.run()

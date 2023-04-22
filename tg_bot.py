@@ -1,3 +1,4 @@
+# импорт необходимых библиотек
 import logging
 from telegram.ext import Application, MessageHandler, filters
 from telegram.ext import CommandHandler
@@ -11,6 +12,7 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
+# кнопки
 reply_keyboard = [['/developers', '/phones'],
                   ['/information_about_site', '/questions']]
 markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
@@ -21,33 +23,39 @@ reply_keyboard_two = [['/how_long_we_make_this', '/how_does_it_cost'],
 markup_two = ReplyKeyboardMarkup(reply_keyboard_two, one_time_keyboard=False)
 
 
+# функция ответа бота при его запуске и открытии клавиатуры с кнопками
 async def start(update, context):
     await update.message.reply_text(
         "Я бот-справочник. Какая информация вам нужна?",
          reply_markup=markup)
 
 
+# функция ответа бота при введении /help
 async def help(update, context):
     await update.message.reply_text(
         "Выберите один из предложенных вариантов вопроса.")
 
 
+# функция ответа бота при нажатии на кнопку /back
 async def back(update, context):
     await update.message.reply_text(
         "Что вас интересует?",
          reply_markup=markup)
 
 
+# функция ответа бота при нажатии на кнопку /developers
 async def developers(update, context):
     await update.message.reply_text(
         "Саттарова Самина и Гончарова Виктория 9Н")
 
 
+# функция ответа бота при нажатии на кнопку /phones
 async def phones(update, context):
     await update.message.reply_text("Самина Саттарова: +7(916)607-6766, "
                                     "Вика: +7(985)909-3310")
 
 
+# функция ответа бота при нажатии на кнопку /information_about_site
 async def information_about_site(update, context):
     await update.message.reply_text(
         "Функции и возможности: в нашем проекте, помимо регистрации и авторизации, "
@@ -57,11 +65,13 @@ async def information_about_site(update, context):
         "узнать про них и о их увелечениях подробнее. А наш телеграм-бот ответит на все ваши вопросы.")
 
 
+# функция ответа бота при нажатии на кнопку /questions и вывод второй клавиатуры с кнопками
 async def questions(update, context):
     await update.message.reply_text(
         "Что именно вы хотите узнать?", reply_markup=markup_two)
 
 
+# функция ответа бота при нажатии на кнопку /how_long_we_make_this
 async def how_long_we_make_this(update, context):
     await update.message.reply_text(
         "Время написания: проект был дан нам примерно на три месяца. "
@@ -71,12 +81,14 @@ async def how_long_we_make_this(update, context):
         "на данный сайт и бот ушло примерно 3 недели времени.")
 
 
+# функция ответа бота при нажатии на кнопку /how_does_it_cost
 async def how_does_it_cost(update, context):
     await update.message.reply_text(
         "По вопросам приобритения писать в личные сообщения, "
         "мы конечно можем договориться, но предвариьельно проект не продается")
 
 
+# функция ответа бота при нажатии на кнопку /for_what_it_need
 async def for_what_it_need(update, context):
     await update.message.reply_text(
         "Цели проекта: у данного проекта были две основные задачи. "
@@ -87,11 +99,13 @@ async def for_what_it_need(update, context):
         "минусах обучения в нашем класе.")
 
 
+# функция ответа бота при нажатии на кнопку /another_questions
 async def another_questions(update, context):
     await update.message.reply_text(
         "По другим вопросам обращаться в лс")
 
 
+# закрытие клавиатуры при введении /close_keyboard
 async def close_keyboard(update, context):
     await update.message.reply_text(
         "Клавиатура с кнопками закрыта, напишите /open, чтобы вновь открыть её",
@@ -99,12 +113,14 @@ async def close_keyboard(update, context):
         )
 
 
+# открытие клавиатуры при введении /open_keyboard
 async def open_keyboard(update, context):
     await update.message.reply_text(
         "Клавиатура с кнопками снова открыта",
         reply_markup=markup)
 
 
+# запуск функций бота
 def main():
     application = Application.builder().token(BOT_TOKEN).build()
     application.add_handler(CommandHandler("start", start))

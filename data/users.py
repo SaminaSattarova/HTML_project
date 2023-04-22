@@ -1,3 +1,4 @@
+# импорт необходимых библиотек
 import datetime
 import sqlalchemy
 from .db_session import SqlAlchemyBase
@@ -6,6 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 
+# создание полей с информацией о пользователях в бд
 class User(SqlAlchemyBase, UserMixin):
     __tablename__ = 'users'
 
@@ -21,11 +23,10 @@ class User(SqlAlchemyBase, UserMixin):
     news = orm.relationship("News", back_populates='user')
     is_classmate = sqlalchemy.Column(sqlalchemy.Boolean, default=True)
 
-    def __repr__(self):
-        return f'<{self.__class__.__name__}> {self.id} {self.name} {self.email}'
-
+    # добавление в бд захэшированного пароля
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
 
+    # проверка пароля при авторизации, регистрации и повторном вводе
     def check_password(self, password):
         return check_password_hash(self.hashed_password, password)

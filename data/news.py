@@ -1,3 +1,4 @@
+# импорт необходимых библиотек
 import datetime
 import sqlalchemy
 from sqlalchemy import orm
@@ -5,6 +6,7 @@ from sqlalchemy import orm
 from .db_session import SqlAlchemyBase
 
 
+# создание полей с информацией о поездках в бд
 class News(SqlAlchemyBase):
     __tablename__ = 'news'
 
