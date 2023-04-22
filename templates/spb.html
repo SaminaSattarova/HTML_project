@@ -8,30 +8,33 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="../templates/travels.css">
+    <link rel="stylesheet" type="text/css" href="../static/css_img/templates/travels.css">
 </head>
 <body>
-  <h1 class="base">Записи в блоге о чаепитиях</h1>
+  <h1 class="base">Записи в блоге</h1>
 
   <div class="container">
-      <h2><b>Какое-то название</b></h2>
+      <h2><b>В культурной столице...</b></h2>
       <div class="post-meta">
           <time datetime="2023-03-26">июнь</time>
           <span class="author">наш класс</span>
-          <span class="category">чаепитие</span>
+          <span class="category">СПБ</span>
       </div>
-      <a class="text" data-bs-toggle="modal" data-bs-target="#exampleModal">Посмотреть запись</a>
+      <a class="text" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-title="{{content[0]}}"
+         data-bs-discription="{{content[1]}}" data-bs-moments="{{content[1]}}" data-bs-conclusion="{{content[1]}}">Посмотреть запись</a>
   </div>
 
   <div class="container">
-      <h2><b>Название</b></h2>
+      <h2><b>Развод мостов </b></h2>
       <div class="post-meta">
-          <time datetime="2023-03-26">март, 8</time>
-          <span class="author">игра</span>
-          <span class="category">праздник</span>
+          <time datetime="2023-03-26">июль</time>
+          <span class="author">наш класс</span>
+          <span class="category">разводные мосты</span>
       </div>
-      <a class="text" data-bs-toggle="modal" data-bs-target="#exampleModal">Посмотреть запись</a>
+      <a class="text" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-title="{{content2[0]}}"
+         data-bs-discription="{{content2[1]}}" data-bs-moments="{{content2[2]}}" data-bs-conclusion="{{content2[3]}}">Посмотреть запись</a>
   </div>
+
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
@@ -43,15 +46,15 @@
             <form>
               <div class="mb-3">
                 <h1 class="col-form-label">Описание</h1>
-                <p class="char"></p>
+                <p class="disc"></p>
               </div>
               <div class="mb-3">
-                <h1 class="col-form-label">Интересные события</h1>
-                <p class="hobby"></p>
+                <h1 class="col-form-label">Интересные моменты</h1>
+                <p class="mom"></p>
               </div>
               <div class="mb-3">
                 <h1 class="col-form-label">Выводы</h1>
-                <p class="travel"></p>
+                <p class="end"></p>
               </div>
             </form>
           </div>
@@ -61,21 +64,20 @@
         </div>
       </div>
   </div>
-
   <script type="text/javascript">
 
     const exampleModal = document.getElementById('exampleModal')
     exampleModal.addEventListener('show.bs.modal', event => {
     const button = event.relatedTarget
-    const recipient = button.getAttribute('data-bs-name')
-    const info = button.getAttribute('data-bs-character')
-    const infoo = button.getAttribute('data-bs-hobby')
-    const infooo = button.getAttribute('data-bs-travels')
+    const title = button.getAttribute('data-bs-title')
+    const info = button.getAttribute('data-bs-discription')
+    const infoo = button.getAttribute('data-bs-moments')
+    const infooo = button.getAttribute('data-bs-conclusion')
     const modalTitle = exampleModal.querySelector('.modal-title')
-    const modalBody = exampleModal.querySelector('.char')
-    const modalBody1 = exampleModal.querySelector('.hobby')
-    const modalBody2 = exampleModal.querySelector('.travel')
-    modalTitle.textContent = `${recipient}`
+    const modalBody = exampleModal.querySelector('.disc')
+    const modalBody1 = exampleModal.querySelector('.mom')
+    const modalBody2 = exampleModal.querySelector('.end')
+    modalTitle.textContent = `${title}`
     modalBody.textContent = `${info}`
     modalBody1.textContent = `${infoo}`
     modalBody2.textContent = `${infooo}`
