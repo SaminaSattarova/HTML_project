@@ -1,0 +1,6 @@
+flask
+flask-login
+subprocess
+logging
+python-telegram-bot
+sqlalchemy

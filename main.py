@@ -62,11 +62,6 @@ def index():
     for elem in db_sess.query(Classmate):
         mates[elem.name] = [elem.character, elem.hobby, elem.travels]
     if current_user.is_authenticated:
-        news = db_sess.query(News).filter(
-            (News.user == current_user) | (News.is_private != True))
-    else:
-        news = db_sess.query(News).filter(News.is_private != True)
-    if current_user.is_authenticated:
         if current_user.is_classmate:
             return render_template('base.html', title='9Н', people=mates, classmate=True, name=current_user.name, form=form)
     return render_template('base.html', title='9Н', people=mates, classmate=False, name='', form=form)
@@ -111,6 +106,32 @@ def reqister():
 
 
 # подключение базы данных
+@app.route('/travels/<name>')
+def travels(name):
+    db_sess = db_session.create_session()
+    if name == 'chaepitiya':
+        content, content2 = [], []
+        for elem in db_sess.query(News).filter(News.title == 'Чаепития'):
+            content = [elem.title, elem.description, elem.moments, elem.conclusion]
+        for elem in db_sess.query(News).filter(News.title == 'Квест на 8 марта'):
+            content2 = [elem.title, elem.description, elem.moments, elem.conclusion]
+        return render_template('chaepitiya.html', content=content, content2=content2)
+    if name == 'patriot':
+        content, content2 = {}, {}
+        for elem in db_sess.query(News).filter(News.title == 'Парк "Патриот"'):
+            content = [elem.title, elem.description, elem.moments, elem.conclusion]
+        for elem in db_sess.query(News).filter(News.title == 'Мышкин'):
+            content2 = [elem.title, elem.description, elem.moments, elem.conclusion]
+        return render_template('patriot.html', content=content, content2=content2)
+    if name == 'spb':
+        content, content2 = {}, {}
+        for elem in db_sess.query(News).filter(News.title == 'Санкт-Петербург'):
+            content = [elem.title, elem.description, elem.moments, elem.conclusion]
+        for elem in db_sess.query(News).filter(News.title == 'Разводные мосты'):
+            content2 = [elem.title, elem.description, elem.moments, elem.conclusion]
+        return render_template('spb.html', content=content, content2=content2)
+
+
 def main():
     db_session.global_init("db/ninthN.db")
     app.run()
